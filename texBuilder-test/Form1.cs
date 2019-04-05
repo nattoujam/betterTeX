@@ -42,7 +42,7 @@ namespace texBuilder_test
         {
             var converter = new Converter((string s) => textBox1.AppendText(s + "\r\n"), (string s) => textBox2.AppendText(s + "\r\n"));
             if(File.Exists(filePath)) {
-                converter.Start(filePath);
+                converter.Start(new StreamWriter(filePath));
             }
             else
             {

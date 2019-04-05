@@ -31,13 +31,13 @@ namespace texBuilder_test
             commandStack = new Stack<string>();
         }
 
-        public void Start(string path)
+        public void Start(TextReader reader)
         {
-            string[] input = File.ReadAllLines(path); 
-            foreach(var t in input)
+            while (reader.Peek() > -1)
             {
-                inputDisp(t);
-                outputDisp(Convert(t));
+                string line = reader.ReadLine();
+                inputDisp(line);
+                outputDisp(Convert(line));
             }
         }
 
