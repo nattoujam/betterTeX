@@ -17,7 +17,7 @@ namespace texBuilder_test
         //
 
         private const string funcSign = "\\func";
-        private const string funcBegin = "begin{";
+        //private const string funcBegin = "begin{";
         private const string funcEnd = "\\end";
 
         private readonly Action<string> inputDisp;
