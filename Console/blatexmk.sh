@@ -13,7 +13,11 @@ then
 fi
 
 #btex -> tex
-
-
+echo "begin to translate to tex file."
+java -jar $fileName.btex >$fileName.tex
 
 #tex -> pdf
+echo "begin to compile to pdf."
+latexmk -c $fileName.tex
+
+#log fileをフォルダーにまとめる
