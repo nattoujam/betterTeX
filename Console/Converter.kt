@@ -1,7 +1,7 @@
 package btex.console
 
 import java.util.Stack
-import java.io.BufferedReader
+import java.io.*
 
 public class Converter {
     private val FUNC_SIGN: String = "\\func"
@@ -13,12 +13,13 @@ public class Converter {
         commandStack = Stack<String>()
     }
 
-    public fun start(reader: BufferedReader): String {
-        var output: String = ""
+    public fun start(r: Reader): String {
+	val reader = BufferedReader(r)
+        var output = StringBuilder()
         while(reader.ready()) {
-            output += convert(reader.readLine()) + "\r\n"
+            output.append(convert(reader.readLine()) + "\r\n")
         }
-        return output
+        return output.toString()
     }
 
     public fun convert(input: String): String {
