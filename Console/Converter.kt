@@ -16,7 +16,7 @@ public class Converter {
     public fun start(reader: BufferedReader): String {
         var output: String = ""
         while(reader.ready()) {
-            output += convert(reader.readLine())
+            output += convert(reader.readLine()) + "\r\n"
         }
         return output
     }
@@ -25,12 +25,12 @@ public class Converter {
         var line = input
         //拡張コマンドの開始
         if(FUNC_SIGN in line) {
-            val start = line.indexOf("(")
+            val start = line.indexOf("(") + 1
             val end = line.indexOf(")")
-            val extended = line.substring(start, end - start).split(',')
+            val extended = line.substring(start, end).split(',')
             val value = line.substring(end + 1)
             line = "\\begin{${extended[0]}}${if(extended.size > 1) extended[1] else ""}$value"
-            commandStack.push("\\end${extended[0]}")
+            commandStack.push("\\end{${extended[0]}}")
         }
             
         //拡張コマンドの終了

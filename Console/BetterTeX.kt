@@ -1,18 +1,17 @@
 package btex.console
 
 import java.io.*
-import btex.console.Converter
 
 public fun main(args: Array<String>) {
     if(args.size != 1) {
-        println("引数は1つのみです。")
+        println("引数はbtexファイルまたはtxtファイルです。")
         return
     }
 
     val extension: String? = getExtension(args[0])
-    println("${extension?: "null"}")
-    if(extension == null || extension != "btex" || extension != "txt") {
-        println("無効なファイルです。")
+    //println("${extension?: "null"}")
+    if(extension == null && !extension.equals("btex") && !extension.equals("txt")) {
+        println("btexファイル及び、txtファイルのみ有効です。")
         return
     }
     

@@ -3,11 +3,9 @@
 \usepackage{here, txfonts}
 \usepackage{url}
 \usepackage[dvipdfmx]{graphicx}
-\usepackage[hang,small,bf]{caption}
-\usepackage[subrefformat=parens]{subcaption}
-\captionsetup{compatibility=false}
 
 \title{拡張現実による集団への所属感}
+\author{ore}
 
 \func(document)
 	\maketitle
@@ -53,7 +51,6 @@
 		図\ref{que}に実際のプログラムを示す。
 		\func(figure, [hbtp])
 			\centering
-			\includegraphics[clip,width=7cm]{que.png}
 			\caption{主観評定のインターフェース}
 			\label{que}
 		\end
