@@ -14,7 +14,7 @@ fi
 
 #btex -> tex
 echo "begin to translate to tex file."
-java -jar $fileName.btex >$fileName.tex
+java -jar betterTex.jar $fileName.btex >$fileName.tex
 
 #tex -> pdf
 echo "begin to compile to pdf."
