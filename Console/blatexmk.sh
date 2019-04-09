@@ -3,7 +3,6 @@
 fileName=${1%.*}
 logFolderName="Log_$fileName"
 
-echo $fileName
 echo "$fileName.btex"
 
 if [ ! -e "$fileName.btex" ] ##btexファイルが存在しない
@@ -19,5 +18,3 @@ java -jar betterTex.jar $fileName.btex >$fileName.tex
 #tex -> pdf
 echo "begin to compile to pdf."
 latexmk -c $fileName.tex
-
-#log fileをフォルダーにまとめる
