@@ -17,4 +17,4 @@ java -jar betterTex.jar $fileName.btex >$fileName.tex
 
 #tex -> pdf
 echo "begin to compile to pdf."
-latexmk -c $fileName.tex
+latexmk $fileName.tex
