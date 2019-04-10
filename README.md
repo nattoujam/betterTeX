@@ -28,11 +28,11 @@ texのソースファイルの記述で、\begin{}...\end{}ではなく、\func(
 
 入力ファイルは.btex及び.tex。
 
-以下のコマンドで入力ファイル内の\begin{}...\end{}が\func()...\endに置き換えられる。
+以下のコマンドで入力ファイル内の\begin{}...\end{}が\func()...\endに置き換え、標準出力に出力。
 
 > java -jar betterTex.jar [mytext.btex]
 
-以下のコマンドで、btex→tex→pdfと自動でコンパイルする。(拡張子は無くてもよい)
+以下のコマンドで、btex→tex→pdfと自動でコンパイルし、pdfファイルを出力する。(拡張子は無くてもよい)
 
 > blatexmk [mytext.btex]
   
