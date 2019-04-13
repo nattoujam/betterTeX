@@ -1,6 +1,6 @@
 **author: nattoujam**
 
-**date: 2019/04/09**
+**date: 2019/04/13**
 
 # betterTeX
 Be easier to handle to writing by TeX
@@ -10,18 +10,18 @@ Be easier to handle to writing by TeX
 java, texlive, latexmk
 
 # Description
-texのソースファイルの記述で、\begin{}...\end{}ではなく、\func()...\endと書くようにする。
+texのソースファイルの記述で、\begin{}...\end{}ではなく、\func()以降にインデントを1つ下げて書くようにする。
 
 (例)
 ~~~
 \begin{abstract}          \func(abstract)
-...                 ->    ...
-\end{abstract}            \end
+...                 ->      ...
+\end{abstract}            
 ~~~
 ~~~
 \begin{tabular}{l|c|c|c|}\hline           \func(tabular, {l|c|c|c|}\hline)
-...                                 ->    ...
-\end{tabular}                             \end
+...                                 ->      ...
+\end{tabular}                             
 ~~~
 
 # Usage
