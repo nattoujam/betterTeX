@@ -37,9 +37,9 @@ public class Converter {
         if(!indentStack.empty() && input.trimStart().length > 0) {
             if(!input.trimStart().substring(0, 1).equals("%")) {
                 val indent = indentLength(input)
-                println("base:${indentStack.peek()} -- indent:${indent}")
+                //println("base:${indentStack.peek()} -- indent:${indent}")
                 if(indentStack.peek() >= indent) {
-                    output.append("${commandStack.pop()}\r\n")
+                    output.appendln(commandStack.pop())
                     indentStack.pop()
                 } 
             }
@@ -50,14 +50,14 @@ public class Converter {
             val end = input.indexOf(")")
             val extended = input.substring(start, end).split(',')
             val value = input.substring(end + 1)
-            output.append("\\begin{${extended[0]}}${if(extended.size > 1) extended[1] else ""}$value\r\n")
+            output.appendln("\\begin{${extended[0]}}${if(extended.size > 1) extended[1] else ""}$value")
             commandStack.push("\\end{${extended[0]}}")
 
             indentStack.push(indentLength(input))
-            println("${input}\r\n[${indentLength(input)}]")
+            //println("${input}\r\n[${indentLength(input)}]")
         }  
         else {
-            output.append("${input}\r\n")
+            output.appendln(input)
         }
     }
     
