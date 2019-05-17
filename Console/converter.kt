@@ -11,10 +11,11 @@ import java.io.Reader
 import java.io.BufferedReader
 
 public class Converter {
+    private var readLineNum = 0
+    private var readLineVal = ""
     private val lineBreak = System.getProperty("line.separator")
     private val commandStack: Stack<String>
     private val indentStack: Stack<Int>
-
 
     init {
         commandStack = Stack<String>()
@@ -25,12 +26,22 @@ public class Converter {
         val reader = BufferedReader(r)
         var output = StringBuilder()
         while(reader.ready()) {
-            convert(output, reader.readLine())
+            readLineNum += 1
+            readLineVal = reader.readLine()
+            convert(output, readLineVal)
         }
         while(!commandStack.empty()) {
             output.appendln(commandStack.pop())
         }
         return output.toString()
+    }
+
+    public fun getReadLineVal(): String {
+        return readLineVal
+    }
+
+    public fun getReadLineNum(): Int {
+        return readLineNum
     }
 
     private fun convert(output: StringBuilder, input: String) {
