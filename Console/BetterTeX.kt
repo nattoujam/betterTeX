@@ -24,6 +24,7 @@ public fun main(args: Array<String>) {
             println("${converter.start(reader)}")
         }
         catch(e: Exception) {
+            e.printStackTrace()
             println("Error: line${converter.getReadLineNum()}: ${converter.getReadLineVal()}")
             exitProcess(2)
         }
