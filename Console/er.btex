@@ -1,5 +1,8 @@
 \author{aaa}
-\func{document}
+\func(document)
     \maketitle
 
-    
+    \func(sss, [aaa, bbbb, cccc])
+        hoge    
+
+    \func(aaa, [dkfjakjd;a])

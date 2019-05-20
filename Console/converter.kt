@@ -59,10 +59,21 @@ public class Converter {
         if("\\func" in input) {
             val start = input.indexOf("(") + 1
             val end = input.indexOf(")")
-            val extended = input.substring(start, end).split(',')
+            val splitIndex = input.indexOf(",")
+            //val extended = input.substring(start, end).split(',')
+            var command: String
+            var extended: String
+            if(splitIndex != -1) {
+                command =  input.substring(start, splitIndex)
+                extended = input.substring(splitIndex + 1, end).trimStart()
+            }
+            else {
+                command = input.substring(start, end)
+                extended = ""
+            }
             val value = input.substring(end + 1)
-            output.appendln("\\begin{${extended[0]}}${if(extended.size > 1) extended[1] else ""}$value")
-            commandStack.push("\\end{${extended[0]}}")
+            output.appendln("\\begin{${command}}${extended}$value")
+            commandStack.push("\\end{${command}}")
 
             indentStack.push(indentLength(input))
             //println("${input}\r\n[${indentLength(input)}]")
